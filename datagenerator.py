@@ -5,6 +5,18 @@ import random
 
 class DataGenerator:
     def get_random_dates(self, start_date_str="2023-06-01", end_date_str="2023-06-15", limit=1):
+        """
+        Generate a list of random dates within a specified range.
+
+        Args:
+            start_date_str (str): The start date in the format "YYYY-MM-DD".
+            end_date_str (str): The end date in the format "YYYY-MM-DD".
+            limit (int): The number of random dates to generate (default: 1).
+
+        Returns:
+            list: A list of random datetime objects.
+
+        """
         start_date = datetime.datetime.strptime(start_date_str, "%Y-%m-%d")
         end_date = datetime.datetime.strptime(end_date_str, "%Y-%m-%d")
 
@@ -18,26 +30,45 @@ class DataGenerator:
 
         return dates
 
-    # Mock the elasticsearch query
     def gen_trades(self, start: str = None, end: str = None, assetClass: str = None,
-                     maxPrice: int = None, minPrice: int = None, tradeType: str = None, tradeId: int = None,
-                     trader: str = None, instrumentId=None, counterparty=None, instrumentName: str = None
-                     ):
+                   maxPrice: int = None, minPrice: int = None, tradeType: str = None, tradeId: int = None,
+                   trader: str = None, instrumentId=None, counterparty=None, instrumentName: str = None):
+        """
+        Generate mock trade data.
+
+        Args:
+            start (str): The start date for generating trade data.
+            end (str): The end date for generating trade data.
+            assetClass (str): The asset class of the instrument traded (default: None).
+            maxPrice (int): The maximum price of the trade (default: None).
+            minPrice (int): The minimum price of the trade (default: None).
+            tradeType (str): The type of the trade (default: None).
+            tradeId (int): The unique ID of the trade (default: None).
+            trader (str): The name of the trader (default: None).
+            instrumentId: The ID of the instrument traded (default: None).
+            counterparty: The counterparty the trade was executed with (default: None).
+            instrumentName (str): The name of the instrument traded (default: None).
+
+        Returns:
+            Trade: A Trade object generated with the provided parameters.
+
+        """
         td = {
             "buySellIndicator": None,
             "price": None,
             "quantity": None
         }
 
-        t = {"assetClass": None,
-             "counterparty": None,
-             "instrumentId": None,
-             "instrumentName": None,
-             "tradeDateTime": None,
-             "tradeDetails": None,
-             "tradeId": None,
-             "trader": None
-             }
+        t = {
+            "assetClass": None,
+            "counterparty": None,
+            "instrumentId": None,
+            "instrumentName": None,
+            "tradeDateTime": None,
+            "tradeDetails": None,
+            "tradeId": None,
+            "trader": None
+        }
 
         instruments = {
             "AAPL": "Apple Inc.",
