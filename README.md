@@ -99,19 +99,19 @@ class TradeDetails(BaseModel):
 
 To simulate the interaction with Elasticsearch, the following scripts are used:
 
-### lib/utils.py
+### ***lib/utils.py***
 This script contains the data models Trade and TradeDetails used by the API.
 
-### datagenerator.py
+### ***datagenerator.py***
 This script is responsible for generating random data for trades. It includes the DataGenerator class with methods to generate random dates and mock Elasticsearch query results.
 
-### elasticsearchDB.py
+### ***elasticsearchDB.py***
 This script implements a mock database using the Elasticsearch class, which extends the DataGenerator class. It includes methods to perform mock database operations such as matching trades, retrieving trades by ID, multi-matching searches, and advanced filtering.
 
-### elasticsearchPlugin.py
+### ***elasticsearchPlugin.py***
 This script provides the DatabasePlugin class, which acts as a plugin for the API. It extends the Elasticsearch class and includes methods to sort trades, fetch a list of trades, retrieve a single trade, search trades, and apply advanced filtering.
 
-### main.py
+### ***main.py***
 This script serves as the entry point for the Trade API. It creates a FastAPI instance, initializes the DatabasePlugin as the database plugin, and defines the API endpoints using FastAPI decorators.
 
 ## Getting Started
