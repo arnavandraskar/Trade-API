@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from elasticsearch_plugin import DatabasePlugin
+from elasticsearchPlugin import DatabasePlugin
 
 app = FastAPI()
 db = DatabasePlugin()
